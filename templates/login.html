@@ -1,0 +1,22 @@
+{% extends "basic.html" %}
+
+{% block main %}
+<form name = “login” method="post" action="{{ url_for('login') }}">
+			<h2>Login to Admin account</h2>
+	{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+	{% for category, message in messages %}
+		<div class="alert {{ category }}">
+			{{ message }}
+			<span class="close_button"
+				  onclick="this.parentElement.style.display='none';">&times;</span>
+		</div>
+	{% endfor %}
+	{% endif %}
+	{% endwith %}
+			<input name="email" type="email" required placeholder="Your email"><br>
+			<input name="password" type="password" required placeholder="Your password"><br>
+			<button name="submit" type="submit">LOG IN</button>
+</form>
+
+{% endblock %}

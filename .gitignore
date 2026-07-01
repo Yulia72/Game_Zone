@@ -1,0 +1,15 @@
+```text
+venv/
+.venv/
+
+__pycache__/
+*.pyc
+
+instance/
+
+.idea/
+.vscode/
+
+.env
+
+*.db

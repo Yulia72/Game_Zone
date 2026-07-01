@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Zone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+  <body>
+       <header>
+    <div class="site-logo">
+        Game Zone
+    </div>
+    <nav class="navbar">
+        <a href="{{ url_for('game') }}">Головна</a>
+        <div class="dropdown">
+        <button type="button" class="dropdown-button">Ігри ▼</button>
+        <div class="dropdown-content">
+            <a href="#ultrakill">Ultrakill</a>
+            <a href="#nfs">Need for Speed</a>
+            <a href="#deltarune">Deltarune</a>
+            <a href="#Fortnite">Fortnite</a>
+            <a href="#Minecraft">Minecraft</a>
+            <a href="#Hollow">Hollow knight</a>
+        </div>
+    </div>
+    </nav>
+    <div class="account">
+        {% if current_user.is_authenticated %}
+            <span>Привіт, {{ current_user.name }}</span>
+            <a href="{{ url_for('logout') }}" class="btn_in">Logout</a>
+        {% else %}
+            <a href="/login" class="btn_in">Sign in</a>
+            <a href="/form" class="btn_up">Sign up</a>
+        {% endif %}
+    </div>
+</header>
+    <main>
+        {% block main %}
+        {% endblock %}
+    </main>
+       <footer>
+  <div class="footer-block" id="contact">
+    <h4>Сайт створили:</h4>
+    <p>Останчук Марія</p>
+    <p>Вальчук Марк</p>
+    <p>Ніколюк-Гарда Ілля</p>
+    <p>Броніцький Владислав</p>
+    <p>Дмітрієв Влад</p>
+    <p>Тичинський Артур</p><br>
+    <p><strong>Ментор:</strong> Іщенко Юлія</p>
+  </div>
+  <div class="footer-block">
+    <h4>Наша адреса</h4>
+    <p>📍 вул.Острозького,32, Вінниця, Вінницька обл., 21000</p>
+    <p>📞 +380631082301</p>
+    <p>✉️ chehovskayulia@gmail.com</p>
+  </div>
+</footer>
+  </body>
+  </html>
